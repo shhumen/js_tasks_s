@@ -224,8 +224,6 @@ if array = [1, "salam", 1, true, true, false, false, false, 5, "5"] then print "
 if array = [2, "class", 1, true, "class", 16, 17, 18,  "17"] then print "2 class 1 true 16 17 18"
 */
 
-/* -----------------------------------------------------------TASK G END ---------------------------------------------------- */
-
 let arrayG = [2, 'class', 1, true, 'class', 16, 17, 18, '17']
 
 const getUniqueValues = (array) => {
@@ -239,3 +237,6 @@ const getUniqueValues = (array) => {
   return uniqueValues.join(', ')
 }
 // console.log(getUniqueValues(arrayG))
+
+/* -----------------------------------------------------------TASK G END ---------------------------------------------------- */
+
