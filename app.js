@@ -81,22 +81,53 @@ Example:
   ["At", 1], [1, "aT"] => false
  */
 
-let firstArr = [12, 33, 'shumen']
-let secondArr = [12, 33, 'Shumen']
+// First Method ==============================
+
+let firstArr = [1, 2, 2]
+let secondArr = [1, 1, 2]
 
 const isArrElementsSame = (firstArr, secondArr) => {
   let boolean_ = false
   if (firstArr.length === secondArr.length) {
     for (const item of firstArr) {
-      if (secondArr.includes(item)) {
-        boolean_ = !boolean_
+      if (
+        countArrayElement(firstArr, item) !== countArrayElement(secondArr, item)
+      ) {
+        return (boolean_ = false)
       }
+      return (boolean_ = true)
     }
   }
   console.log(firstArr, secondArr, boolean_)
 }
 
 // console.log(isArrElementsSame(firstArr, secondArr))
+
+// Second Method =========================
+
+let array1 = [1, 2, 2]
+let array2 = [2, 1, 1]
+
+const isArrElementsSame2 = (array1, array2) => {
+  if (array1.length !== array2.length) {
+    return false
+  }
+
+  for (let i = 0; i < array1.length; i++) {
+    const element = array1[i]
+
+    if (!array2.includes(element)) {
+      return false
+    }
+
+    const index = array2.indexOf(element)
+    array2.splice(index, 1)
+  }
+
+  return true
+}
+
+// console.log(isArrElementsSame2(firstArr, array2)) // true
 
 /* -----------------------------------------------------------TASK B END  ---------------------------------------------------- */
 
@@ -125,9 +156,7 @@ const findSecondExtremes = (numArray) => {
 
 // console.log(findSecondExtremes(numberArrayC))
 
-/* -----------------------------------------------------------TASK C END  ---------------------------------------------------- */
-
-/* -----------------------------------------------------------TASK D START  ---------------------------------------------------- */
+/* -----------------------------------------------------------TASK D   ---------------------------------------------------- */
 /*
 D.
 Bir number arrayı yaradın və buna dəyər mənimsədin.
@@ -153,9 +182,7 @@ const sumOfPositiveNegativeNums = (numberArray) => {
 }
 // console.log(sumOfPositiveNegativeNums(numberArrayD))
 
-/* -----------------------------------------------------------TASK D END  ---------------------------------------------------- */
-
-/* -----------------------------------------------------------TASK E START  ---------------------------------------------------- */
+/* -----------------------------------------------------------TASK E   ---------------------------------------------------- */
 
 /*
 E.
@@ -181,9 +208,7 @@ const findLimitedNumbers = (arr, limit) => {
 
 // console.log(findLimitedNumbers(numberArrayE, limitE))
 
-/* -----------------------------------------------------------TASK E END  ---------------------------------------------------- */
-
-/* -----------------------------------------------------------TASK F START  ---------------------------------------------------- */
+/* -----------------------------------------------------------TASK F   ---------------------------------------------------- */
 /*
 F.
 1. Bir 'result' dəyişkəniniz olacaq ki başlanğəc dəyəri 1 olmalıdır. Bir arrayiniz olacaq ki içində boolean və integer dəyərlər olacaq. Hər zaman cüt indexlərdə integer'lər, tək indexlərdə boolean dəyərlər olacaq.
@@ -212,9 +237,7 @@ const myFunc = (array) => {
 
 // console.log(myFunc(arrayF))
 
-/* -----------------------------------------------------------TASK F END  ---------------------------------------------------- */
-
-/* -----------------------------------------------------------TASK G START ---------------------------------------------------- */
+/* -----------------------------------------------------------TASK G  ---------------------------------------------------- */
 /*
 G.
 1. Bir array yaradın və buna dəyər mənimsədin.
@@ -237,6 +260,3 @@ const getUniqueValues = (array) => {
   return uniqueValues.join(', ')
 }
 // console.log(getUniqueValues(arrayG))
-
-/* -----------------------------------------------------------TASK G END ---------------------------------------------------- */
-
