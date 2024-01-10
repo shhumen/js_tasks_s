@@ -19,28 +19,7 @@ input => [5, 2, "salam", "necesen", "salam", 56, 2, 7, 7, 7 ] =>
 
 // Solution
 
-let myArray = [
-  1,
-  2,
-  'Shumen',
-  33,
-  'Shumen',
-  89,
-  34,
-  'shumen',
-  'Salam',
-  34,
-  77,
-  'shumen',
-  89,
-  'Salam',
-  'swaayyy',
-  56,
-  'hellcode',
-  4568,
-  34,
-]
-
+let myArray = [5, 2, 'salam', 'necesen', 'salam', 56, 2, 7, 7, 7]
 const countArrayElement = (array_, num_) => {
   let count = 0
   for (item of array_) {
@@ -62,11 +41,9 @@ const countAllArrayElements = (array_) => {
   }
 }
 
-// console.log(countAllArrayElements(myArray))
+console.log(countAllArrayElements(myArray))
 
-/* -----------------------------------------------------------TASK A END ---------------------------------------------------- */
-
-/* -----------------------------------------------------------TASK B START ---------------------------------------------------- */
+/* -----------------------------------------------------------TASK B ---------------------------------------------------- */
 
 /*
 B.
@@ -114,6 +91,7 @@ const isArrElementsSame2 = (array1, array2) => {
   }
 
   for (let i = 0; i < array1.length; i++) {
+    33
     const element = array1[i]
 
     if (!array2.includes(element)) {
@@ -129,9 +107,7 @@ const isArrElementsSame2 = (array1, array2) => {
 
 // console.log(isArrElementsSame2(firstArr, array2)) // true
 
-/* -----------------------------------------------------------TASK B END  ---------------------------------------------------- */
-
-/* -----------------------------------------------------------TASK C START  ---------------------------------------------------- */
+/* -----------------------------------------------------------TASK C  ---------------------------------------------------- */
 /*
 C.
 Bir number arrayı yaradın və buna dəyər mənimsədin.
@@ -167,7 +143,7 @@ Arrayin içində olan sadəcə müsbət ədədləri ayrı, mənfi ədədləri ay
 
 */
 
-let numberArrayD = [-7, -3, 2, -8, 5, -4]
+let numberArrayD = [1, 2, -5, 8, -3, 9, -9]
 
 const sumOfPositiveNegativeNums = (numberArray) => {
   let positiveSum = 0
@@ -175,12 +151,13 @@ const sumOfPositiveNegativeNums = (numberArray) => {
   for (const item of numberArray) {
     if (item > 0) {
       positiveSum += item
+    } else {
+      negativeSum += item
     }
-    negativeSum += item
   }
   return `Sum of positives: ${positiveSum}\nSum of negatives: ${negativeSum}`
 }
-// console.log(sumOfPositiveNegativeNums(numberArrayD))
+console.log(sumOfPositiveNegativeNums(numberArrayD))
 
 /* -----------------------------------------------------------TASK E   ---------------------------------------------------- */
 
