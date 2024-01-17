@@ -56,10 +56,12 @@ const resFilter = [1, 2, 3, 4].filterCustom((val, i, arr) => {
 // console.log(resFilter)
 
 // SORT
+// [1,4,5,2,8,1,3,20]
 Array.prototype.sortCustom = function (callbackFn) {
   for (let i = 0; i < this.length - 1; i++) {
-    // i=0  i< 3 ; i=1 i<3 ; i=2 i<3 -stoped
+    // i=0  i < 3 ; i= 1 i < 3 ; i=2 i<3 -stoped
     for (let j = 0; j < this.length - 1 - i; j++) {
+      // 8-1-0
       if (callbackFn(this[j], this[j + 1]) > 0) {
         const save = this[j] // save = 1   1 , 3 < 0 -> failed  2.cycle -> 3,2 save = 3  [2 , 3]
         this[j] = this[j + 1]
@@ -80,12 +82,14 @@ Array.prototype.joinCustom = function (pattern = ',') {
   let str = ''
   if (pattern) {
     for (let i = 0; i < this.length; i++) {
-      str += this[i] //
+      // str += this[i] + pattern
+      str += this[i]
       if (i < this.length - 1) {
         str += pattern
       }
     }
     return str
+    // return pattern ? str.slice(0,str.length-1):str
   }
 }
 const resJoin = ['Fire', 'Air', 'Water', 'Shumen', 'Mehdiyeva'].joinCustom('-')
@@ -175,6 +179,16 @@ Array.prototype.reduceCustom = function (callbackFn, initialValue) {
 
   return accumulator
 }
+Array.prototype.reduceCustom2 = function (callbackFn, initialValue) {
+  if (!initialValue && this.length === 0) {
+    throw new Error('Reduce of empty to arr with no iitial val')
+  }
+  if (initialValue === undefined) initialValue = this[0]
+  for (let i = 0; i < this.length; i++) {
+    initialValue = callbackFn(initialValue, this[i], i, this)
+  }
+  return initialValue
+}
 
 const resReduce = [
   'apple',
@@ -191,7 +205,7 @@ const resReduce = [
 // console.log(resReduce)
 
 const arr = [1, 2, 3, 4]
-const result = arr.reduceCustom(
+const result = arr.reduceCustom2(
   (accumulator, currentValue) => accumulator + currentValue,
   0
 )
@@ -200,10 +214,13 @@ const result = arr.reduceCustom(
 // REVERSE
 
 Array.prototype.reverseCustom = function () {
-  for (let i = 0; i < this.length / 2; i++) {
-    const save = this[i] // 1 ; 2 ; 3
-    this[i] = this[this.length - 1 - i] // 7 ; 6 ; 3
-    this[this.length - 1 - i] = save // last index = save  =>> it means first one will stay at the end of the array [7,1] ; [7,6,2,1]
+  for (let i = 0; i < parseInt(this.length / 2); i++) {
+    // const save = this[i] // 1 ; 2 ; 3
+    // this[i] = this[this.length - 1 - i] // 7 ; 6 ; 3
+    // this[this.length - 1 - i] =save
+    ;[this[i], this[this.length - 1 - i]] = [this[this.length - 1 - i], this[i]]
+
+    // last index = save  =>> it means first one will stay at the end of the array [7,1] ; [7,6,2,1]
   }
   return this
 }
@@ -218,4 +235,4 @@ const resReverse = [
   'spagetti',
 ].reverseCustom()
 
-// console.log(resReverse)
+console.log(resReverse)
